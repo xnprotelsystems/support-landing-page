@@ -235,6 +235,63 @@
     .help-strip a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .help-strip a:hover { color: var(--accent-hover); }
 
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 48px rgba(0,0,0,.2);
+      max-width: 420px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      animation: modalIn .18s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .75rem;
+    }
+
+    .modal p {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: .9rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+      padding: .2rem .4rem;
+      border-radius: 4px;
+    }
+    .modal-close:hover { background: var(--surface); color: var(--text); }
+
     /* ── Footer ── */
     footer {
       margin-top: auto;
@@ -343,13 +400,45 @@
   </div>
 
   <div class="help-strip">
-    <p><strong>Not sure which portal to use?</strong><br>Send an email detailing your request to <a href="mailto:support@xnpropertysystems.com">support@xnpropertysystems.com</a> and we will respond accordingly.<br>Please call the emergency support number for all urgent issues directly impacting your business operations.</p>
+    <p><strong>Not sure which portal to use?</strong><br>Send an email detailing your request to <a href="mailto:support@xnpropertysystems.com">support@xnpropertysystems.com</a> and we will respond accordingly.<br>Please call the <a href="#" id="emergency-link">emergency support number</a> for all urgent issues directly impacting your business operations.</p>
   </div>
 
   <footer>
     <p>&copy; 2026 Xn Property Systems</p>
   </footer>
 
+
+<!-- Emergency support modal -->
+<div class="modal-overlay" id="emergency-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <h3 id="modal-title">Emergency Support</h3>
+    <p>
+      [Placeholder] Emergency support contact details will appear here.<br><br>
+      For example:<br>
+      <strong>Phone:</strong> +00 000 000 0000<br>
+      <strong>Hours:</strong> 24 / 7<br>
+      <strong>Reference:</strong> Please have your site ID ready when calling.
+    </p>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('emergency-modal');
+  document.getElementById('emergency-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    overlay.classList.add('open');
+  });
+  document.getElementById('modal-close').addEventListener('click', function() {
+    overlay.classList.remove('open');
+  });
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') overlay.classList.remove('open');
+  });
+</script>
 
 <!-- Start of xnpms Zendesk Widget script -->
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=45692d67-83b3-4e84-a3a5-146d3499c71d"> </script>
