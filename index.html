@@ -3,245 +3,376 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xn protel Support</title>
+  <title>Xn Property Systems · Support Springboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --brand:       #1a3a5c;
-      --brand-light: #1e4a73;
-      --accent:      #0077cc;
-      --accent-hover:#005fa3;
-      --pos:         #0a6640;
-      --pos-hover:   #085533;
-      --pms:         #1a3a5c;
-      --pms-hover:   #122844;
-      --surface:     #f5f7fa;
-      --card:        #ffffff;
-      --text:        #1a1a2e;
-      --muted:       #5a6275;
-      --border:      #dde3ec;
-      --radius:      12px;
-      --shadow:      0 4px 24px rgba(0,0,0,.09);
-      --shadow-hover:0 8px 36px rgba(0,0,0,.15);
+      --navy:          #0b1f36;
+      --navy-mid:      #112d4e;
+      --navy-light:    #1a4068;
+      --blue:          #0078d4;
+      --blue-hover:    #006abc;
+      --blue-bright:   #1a9fff;
+      --pos:           #00694a;
+      --pos-mid:       #005a3d;
+      --pos-glow:      rgba(0,105,74,.18);
+      --pms:           #0b1f36;
+      --pms-mid:       #0a1b30;
+      --pms-glow:      rgba(0,120,212,.18);
+      --surface:       #f0f4f8;
+      --surface-alt:   #e8eef5;
+      --card:          #ffffff;
+      --text:          #0b1f36;
+      --text-soft:     #334d66;
+      --muted:         #6b82a0;
+      --border:        #d0daea;
+      --border-light:  #e4eaf3;
+      --radius-sm:     6px;
+      --radius:        10px;
+      --radius-lg:     16px;
+      --shadow-card:   0 2px 12px rgba(11,31,54,.08), 0 1px 3px rgba(11,31,54,.05);
+      --shadow-hover:  0 8px 32px rgba(11,31,54,.14), 0 2px 8px rgba(11,31,54,.06);
+      --shadow-modal:  0 20px 60px rgba(11,31,54,.25), 0 4px 16px rgba(11,31,54,.12);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: var(--surface);
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Header ── */
+    /* ══════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════ */
     header {
-      background: var(--brand);
-      color: #fff;
-      padding: 0 2rem;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
 
     .header-inner {
-      max-width: 960px;
+      max-width: 1080px;
       margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1.25rem 0;
+      justify-content: space-between;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: .75rem;
+      gap: .85rem;
       text-decoration: none;
-      color: inherit;
+      color: #fff;
     }
 
     .logo-mark {
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      background: var(--blue);
+      border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Sora', sans-serif;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: .9rem;
       letter-spacing: -.5px;
+      color: #fff;
       flex-shrink: 0;
     }
 
-    .logo-text { line-height: 1.2; }
-    .logo-text strong { font-size: 1.15rem; font-weight: 700; display: block; }
-    .logo-text span   { font-size: .75rem; opacity: .75; letter-spacing: .03em; text-transform: uppercase; }
-
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 60%, #1d5a8a 100%);
+    .logo-text { line-height: 1.15; }
+    .logo-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
       color: #fff;
+      display: block;
+      letter-spacing: -.01em;
+    }
+    .logo-sub {
+      font-size: .68rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem 7rem;
       text-align: center;
-      padding: 4rem 2rem 5rem;
+    }
+
+    /* Subtle grid texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* Blue glow accent */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(0,120,212,.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue-bright);
+      margin-bottom: 1.25rem;
+      padding: .3rem .85rem;
+      border: 1px solid rgba(26,159,255,.25);
+      border-radius: 99px;
+      background: rgba(26,159,255,.08);
     }
 
     .hero h1 {
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: .75rem;
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      letter-spacing: -.03em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #fff 0%, var(--blue-bright) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero p {
-      font-size: clamp(.95rem, 2vw, 1.15rem);
-      opacity: .85;
-      max-width: 540px;
-      margin: 0 auto;
-      line-height: 1.6;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+      font-weight: 400;
     }
 
-    /* ── Cards ── */
+    /* ══════════════════════════════════════
+       CARDS
+    ══════════════════════════════════════ */
     .cards-section {
-      max-width: 960px;
-      margin: -3rem auto 0;
-      padding: 0 1.5rem 4rem;
+      max-width: 1080px;
+      margin: -3.5rem auto 0;
+      padding: 0 2rem 5rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
+      position: relative;
+      z-index: 2;
     }
 
     .card {
       background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: box-shadow .2s, transform .2s;
+      transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
     }
 
     .card:hover {
       box-shadow: var(--shadow-hover);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+      border-color: var(--border);
     }
 
-    .card-stripe {
-      height: 5px;
+    .card-header {
+      padding: 1.75rem 1.75rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
     }
-    .card--pos .card-stripe  { background: var(--pos); }
-    .card--pms .card-stripe  { background: var(--pms); }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card--pos .card-icon { background: #dcf0e8; color: var(--pos); }
+    .card--pms .card-icon { background: #dce8f5; color: var(--blue); }
+    .card-icon svg { width: 22px; height: 22px; }
+
+    .card-title-group { flex: 1; }
+    .card h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.02em;
+      line-height: 1.3;
+    }
 
     .card-body {
-      padding: 1.75rem 1.75rem 1.5rem;
+      padding: 1rem 1.75rem 1.75rem;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.1rem;
-      flex-shrink: 0;
-    }
-    .card--pos .card-icon { background: #e6f4ee; color: var(--pos); }
-    .card--pms .card-icon { background: #e6eef6; color: var(--pms); }
-
-    .card-icon svg { width: 24px; height: 24px; }
-
-    .card h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: .5rem;
-      color: var(--text);
-    }
-
-    .card-subtitle {
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      margin-bottom: .6rem;
-    }
-    .card--pos .card-subtitle { color: var(--pos); }
-    .card--pms .card-subtitle { color: var(--pms); }
-
     .card p {
       font-size: .9rem;
-      color: var(--muted);
-      line-height: 1.65;
+      color: var(--text-soft);
+      line-height: 1.7;
       flex: 1;
+      margin-bottom: 1.25rem;
     }
 
     .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: .4rem;
-      margin: 1rem 0 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .tag {
-      font-size: .73rem;
+      font-size: .72rem;
       font-weight: 600;
-      padding: .25rem .65rem;
+      padding: .28rem .7rem;
       border-radius: 99px;
       letter-spacing: .02em;
     }
-    .card--pos .tag { background: #d4eddf; color: #0a5534; }
-    .card--pms .tag { background: #d6e6f4; color: #14325a; }
+    .card--pos .tag { background: #e6f5ee; color: #00512e; border: 1px solid #c3e6d4; }
+    .card--pms .tag { background: #e6f0fb; color: #00498a; border: 1px solid #c3d9f5; }
 
     .card-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: .5rem;
-      padding: .8rem 1.5rem;
-      border-radius: 8px;
-      font-size: .93rem;
+      gap: .55rem;
+      padding: .78rem 1.5rem;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
       font-weight: 600;
       text-decoration: none;
       color: #fff;
-      transition: background .15s, box-shadow .15s;
+      transition: background .15s, box-shadow .15s, transform .1s;
       width: 100%;
+      letter-spacing: .01em;
     }
+    .card-btn:active { transform: scale(.98); }
     .card--pos .card-btn { background: var(--pos); }
-    .card--pos .card-btn:hover { background: var(--pos-hover); box-shadow: 0 4px 12px rgba(10,102,64,.3); }
-    .card--pms .card-btn { background: var(--pms); }
-    .card--pms .card-btn:hover { background: var(--pms-hover); box-shadow: 0 4px 12px rgba(26,58,92,.3); }
+    .card--pos .card-btn:hover { background: var(--pos-mid); box-shadow: 0 4px 16px var(--pos-glow); }
+    .card--pms .card-btn { background: var(--blue); }
+    .card--pms .card-btn:hover { background: var(--blue-hover); box-shadow: 0 4px 16px var(--pms-glow); }
+    .card-btn svg { width: 15px; height: 15px; flex-shrink: 0; opacity: .85; }
 
-    .card-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    /* Divider line in card */
+    .card-divider {
+      height: 1px;
+      background: var(--border-light);
+      margin: 0 1.75rem 1.5rem;
+    }
 
-    /* ── Help strip ── */
+    /* ══════════════════════════════════════
+       HELP STRIP
+    ══════════════════════════════════════ */
     .help-strip {
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 2rem 1.5rem;
+      background: var(--navy-mid);
+      padding: 2.25rem 2rem;
       text-align: center;
     }
 
     .help-strip p {
-      font-size: .92rem;
-      color: var(--muted);
+      font-size: .9rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.9;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
-    .help-strip strong { color: var(--text); }
-    .help-strip a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    .help-strip a:hover { color: var(--accent-hover); }
+    .help-strip strong { color: rgba(255,255,255,.9); font-weight: 600; }
 
-    /* ── Modal ── */
+    .help-strip a {
+      color: var(--blue-bright);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .15s;
+    }
+    .help-strip a:hover { color: #fff; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      margin-top: auto;
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.35);
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: .78rem;
+      letter-spacing: .02em;
+    }
+
+    /* ══════════════════════════════════════
+       MODAL
+    ══════════════════════════════════════ */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,.45);
-      z-index: 100;
+      background: rgba(7,18,32,.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 200;
       align-items: center;
       justify-content: center;
       padding: 1rem;
@@ -250,61 +381,65 @@
 
     .modal {
       background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 12px 48px rgba(0,0,0,.2);
-      max-width: 420px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-modal);
+      border: 1px solid var(--border-light);
+      max-width: 440px;
       width: 100%;
       padding: 2rem;
       position: relative;
-      animation: modalIn .18s ease;
+      animation: modalIn .2s cubic-bezier(.22,.68,0,1.2);
     }
 
     @keyframes modalIn {
-      from { opacity: 0; transform: translateY(-12px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(-16px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .modal h3 {
+      font-family: 'Sora', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: .75rem;
+      letter-spacing: -.02em;
+      margin-bottom: .85rem;
     }
 
-    .modal p {
-      font-size: .92rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
+    .modal p { font-size: .9rem; color: var(--text-soft); line-height: 1.65; }
 
     .modal-close {
       position: absolute;
-      top: .9rem;
+      top: 1rem;
       right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
       line-height: 1;
       cursor: pointer;
       color: var(--muted);
-      padding: .2rem .4rem;
-      border-radius: 4px;
+      transition: background .15s, color .15s;
     }
-    .modal-close:hover { background: var(--surface); color: var(--text); }
+    .modal-close:hover { background: var(--border); color: var(--text); }
 
-    .modal--wide { max-width: 680px; }
+    .modal--wide { max-width: 700px; }
 
     .modal-notice {
-      font-size: .85rem;
-      color: var(--muted);
-      background: #fff8e6;
-      border: 1px solid #f0d890;
-      border-radius: 6px;
-      padding: .6rem .9rem;
-      margin-bottom: 1.25rem;
-      line-height: 1.5;
+      font-size: .82rem;
+      color: #7a5c00;
+      background: #fff9e6;
+      border: 1px solid #f0dc8a;
+      border-radius: var(--radius-sm);
+      padding: .65rem 1rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.55;
     }
-    .modal-notice strong { color: #7a5800; }
+    .modal-notice strong { color: #5c4400; }
 
     .modal-cols {
       display: grid;
@@ -313,118 +448,154 @@
     }
 
     .modal-col-header {
-      font-size: .75rem;
+      font-family: 'Sora', sans-serif;
+      font-size: .7rem;
       font-weight: 700;
-      letter-spacing: .06em;
+      letter-spacing: .09em;
       text-transform: uppercase;
-      padding: .4rem .75rem;
-      border-radius: 6px;
-      margin-bottom: .9rem;
+      padding: .35rem .75rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      display: block;
     }
-    .modal-col-header--pos { background: #e6f4ee; color: var(--pos); }
-    .modal-col-header--pms { background: #e6eef6; color: var(--pms); }
+    .modal-col-header--pos { background: #dcf0e8; color: var(--pos); }
+    .modal-col-header--pms { background: #dce8f5; color: #005fa3; }
 
     .phone-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: .55rem;
+      gap: .6rem;
     }
     .phone-list li {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: .88rem;
-      gap: 1rem;
+      gap: .75rem;
+      padding: .45rem .65rem;
+      border-radius: var(--radius-sm);
+      transition: background .12s;
     }
+    .phone-list li:hover { background: var(--surface); }
+
     .phone-list .country {
-      font-size: .85rem;
+      font-size: .83rem;
       font-weight: 500;
-      color: var(--muted);
+      color: var(--text-soft);
     }
     .phone-list a {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
+      font-size: .85rem;
       white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
     }
-    .phone-list a:hover { color: var(--accent); }
+    .phone-list a:hover { color: var(--blue); }
 
     .modal-col--tbc {
       display: flex;
       flex-direction: column;
+    }
+    .tbc-body {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
       border: 2px dashed var(--border);
-      border-radius: 8px;
-      padding: 1rem;
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
       text-align: center;
     }
     .tbc-text {
-      font-size: .85rem;
+      font-size: .82rem;
       color: var(--muted);
       font-style: italic;
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 540px) {
       .modal-cols { grid-template-columns: 1fr; }
       .modal--wide { max-width: 100%; }
     }
 
-    /* ── Footer ── */
-    footer {
-      margin-top: auto;
-      background: var(--brand);
-      color: rgba(255,255,255,.65);
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: .8rem;
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 600px) {
+      .hero { padding: 3.5rem 1.25rem 6rem; }
+      .cards-section { padding: 0 1.25rem 3.5rem; }
+      .card-header, .card-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .card-divider { margin-left: 1.25rem; margin-right: 1.25rem; }
+      .header-inner { padding: 0 1.25rem; }
     }
 
-    footer a { color: rgba(255,255,255,.8); text-decoration: none; }
-    footer a:hover { color: #fff; }
+    /* ══════════════════════════════════════
+       ENTRY ANIMATIONS
+    ══════════════════════════════════════ */
+    .card {
+      opacity: 0;
+      animation: cardIn .5s ease forwards;
+    }
+    .card:nth-child(1) { animation-delay: .1s; }
+    .card:nth-child(2) { animation-delay: .22s; }
 
-    @media (max-width: 500px) {
-      .hero { padding: 3rem 1.25rem 4rem; }
-      .cards-section { padding-bottom: 2.5rem; }
-      .card-body { padding: 1.4rem; }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content {
+      opacity: 0;
+      animation: heroIn .6s ease .05s forwards;
+    }
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
+  <!-- ── Header ── -->
   <header>
     <div class="header-inner">
       <a class="logo" href="#">
         <div class="logo-mark">xn</div>
         <div class="logo-text">
-          <strong>Xn Property Systems</strong>
-          <span>Support Springboard</span>
+          <span class="logo-name">Xn Property Systems</span>
+          <span class="logo-sub">Support Springboard</span>
         </div>
       </a>
     </div>
   </header>
 
+  <!-- ── Hero ── -->
   <section class="hero">
-    <h1>How can we help you today?</h1>
-    <p>Select the support portal that matches your product to log a ticket, search our knowledge base, or track an existing request.</p>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Customer Support</div>
+      <h1>How can we <span>help you today?</span></h1>
+      <p>Select the support portal that matches your product to log a ticket, search our knowledge base, or track an existing request.</p>
+    </div>
   </section>
 
+  <!-- ── Cards ── -->
   <div class="cards-section">
 
     <!-- xnPOS -->
     <div class="card card--pos">
-      <div class="card-stripe"></div>
-      <div class="card-body">
+      <div class="card-header">
         <div class="card-icon">
-          <!-- Cash register / POS icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="3" width="20" height="14" rx="2"/>
             <path d="M8 21h8M12 17v4"/>
             <path d="M7 8h.01M12 8h.01M17 8h.01M7 12h.01M12 12h.01M17 12h.01"/>
           </svg>
         </div>
-        <h2>xnPOS Support</h2>
+        <div class="card-title-group">
+          <h2>xnPOS Support</h2>
+        </div>
+      </div>
+      <div class="card-body">
         <p>Dedicated support for xnPOS customers (hardware, software, configuration, and operational issues).</p>
         <div class="tag-list">
           <span class="tag">Operations</span>
@@ -434,9 +605,10 @@
           <span class="tag">KIOSK</span>
           <span class="tag">Hardware</span>
         </div>
+        <div class="card-divider"></div>
         <a class="card-btn" href="https://xn.zendesk.com" target="_blank" rel="noopener">
           Go to xnPOS Support
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
             <polyline points="15 3 21 3 21 9"/>
             <line x1="10" y1="14" x2="21" y2="3"/>
@@ -445,18 +617,20 @@
       </div>
     </div>
 
-    <!-- xnPMS / Rezpage / Integrations -->
+    <!-- PMS / Rezpage / Integrations -->
     <div class="card card--pms">
-      <div class="card-stripe"></div>
-      <div class="card-body">
+      <div class="card-header">
         <div class="card-icon">
-          <!-- Building / PMS icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
         </div>
-        <h2>Property &amp; Platform Support</h2>
+        <div class="card-title-group">
+          <h2>Property &amp; Platform Support</h2>
+        </div>
+      </div>
+      <div class="card-body">
         <p>Support for Hotel PMS, Rezpage student accommodation and build-to-rent systems, third-party integrations, and customer development projects.</p>
         <div class="tag-list">
           <span class="tag">protel MPE/SPE</span>
@@ -465,9 +639,10 @@
           <span class="tag">PMS Integrations</span>
           <span class="tag">CKIT Development</span>
         </div>
+        <div class="card-divider"></div>
         <a class="card-btn" href="https://xnpms.zendesk.com" target="_blank" rel="noopener">
           Go to PMS &amp; Platform Support
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
             <polyline points="15 3 21 3 21 9"/>
             <line x1="10" y1="14" x2="21" y2="3"/>
@@ -478,66 +653,73 @@
 
   </div>
 
+  <!-- ── Help Strip ── -->
   <div class="help-strip">
-    <p><strong>Not sure which portal to use?</strong><br>Send an email detailing your request to <a href="mailto:support@xnpropertysystems.com">support@xnpropertysystems.com</a> and we will respond accordingly.<br>Please call the <a href="#" id="emergency-link">emergency support number</a> for all urgent issues directly impacting your business operations.</p>
+    <p>
+      <strong>Not sure which portal to use?</strong><br>
+      Send an email detailing your request to <a href="mailto:support@xnpropertysystems.com">support@xnpropertysystems.com</a> and we will respond accordingly.<br>
+      Please call the <a href="#" id="emergency-link">emergency support number</a> for all urgent issues directly impacting your business operations.
+    </p>
   </div>
 
+  <!-- ── Footer ── -->
   <footer>
     <p>&copy; 2026 Xn Property Systems</p>
   </footer>
 
+  <!-- ── Emergency Support Modal ── -->
+  <div class="modal-overlay" id="emergency-modal">
+    <div class="modal modal--wide" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <h3 id="modal-title">Emergency Support Numbers</h3>
+      <p class="modal-notice">Please note these telephone numbers are to be used for <strong>business critical support calls only</strong>.</p>
+      <div class="modal-cols">
 
-<!-- Emergency support modal -->
-<div class="modal-overlay" id="emergency-modal">
-  <div class="modal modal--wide" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-    <h3 id="modal-title">Emergency Support Numbers</h3>
-    <p class="modal-notice">Please note these telephone numbers are to be used for <strong>business critical support calls only</strong>.</p>
-    <div class="modal-cols">
+        <!-- Left: xnPOS -->
+        <div class="modal-col">
+          <span class="modal-col-header modal-col-header--pos">xnPOS Support</span>
+          <ul class="phone-list">
+            <li><span class="country">Australia</span><a href="tel:+61395250525">+61 3 9525 0525</a></li>
+            <li><span class="country">India</span><a href="tel:+919429692080">+91 94 29 69 2080</a></li>
+            <li><span class="country">New Zealand</span><a href="tel:+64800001464">+64 800 001 464</a></li>
+            <li><span class="country">UAE</span><a href="tel:+97148727061">+971 4872 7061</a></li>
+            <li><span class="country">United Kingdom</span><a href="tel:+443332409724">+44 3332 409724</a></li>
+            <li><span class="country">USA</span><a href="tel:+12137871296">+1 213 787 1296</a></li>
+          </ul>
+        </div>
 
-      <!-- Left: xnPOS -->
-      <div class="modal-col">
-        <div class="modal-col-header modal-col-header--pos">xnPOS Support</div>
-        <ul class="phone-list">
-          <li><span class="country">Australia</span><a href="tel:+61395250525">+61 3 9525 0525</a></li>
-          <li><span class="country">India</span><a href="tel:+919429692080">+91 94 29 69 2080</a></li>
-          <li><span class="country">New Zealand</span><a href="tel:+64800001464">+64 800 001 464</a></li>
-          <li><span class="country">UAE</span><a href="tel:+97148727061">+971 4872 7061</a></li>
-          <li><span class="country">United Kingdom</span><a href="tel:+443332409724">+44 3332 409724</a></li>
-          <li><span class="country">USA</span><a href="tel:+12137871296">+1 213 787 1296</a></li>
-        </ul>
+        <!-- Right: PMS (TBC) -->
+        <div class="modal-col modal-col--tbc">
+          <span class="modal-col-header modal-col-header--pms">PMS &amp; Platform Support</span>
+          <div class="tbc-body">
+            <p class="tbc-text">Contact information coming soon.</p>
+          </div>
+        </div>
+
       </div>
-
-      <!-- Right: PMS (TBC) -->
-      <div class="modal-col modal-col--tbc">
-        <div class="modal-col-header modal-col-header--pms">PMS &amp; Platform Support</div>
-        <p class="tbc-text">Contact information coming soon.</p>
-      </div>
-
     </div>
   </div>
-</div>
 
-<script>
-  const overlay = document.getElementById('emergency-modal');
-  document.getElementById('emergency-link').addEventListener('click', function(e) {
-    e.preventDefault();
-    overlay.classList.add('open');
-  });
-  document.getElementById('modal-close').addEventListener('click', function() {
-    overlay.classList.remove('open');
-  });
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) overlay.classList.remove('open');
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') overlay.classList.remove('open');
-  });
-</script>
+  <script>
+    const overlay = document.getElementById('emergency-modal');
+    document.getElementById('emergency-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      overlay.classList.add('open');
+    });
+    document.getElementById('modal-close').addEventListener('click', function() {
+      overlay.classList.remove('open');
+    });
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) overlay.classList.remove('open');
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') overlay.classList.remove('open');
+    });
+  </script>
 
-<!-- Start of xnpms Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=45692d67-83b3-4e84-a3a5-146d3499c71d"> </script>
-<!-- End of xnpms Zendesk Widget script -->
+  <!-- Start of xnpms Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=45692d67-83b3-4e84-a3a5-146d3499c71d"> </script>
+  <!-- End of xnpms Zendesk Widget script -->
 
 </body>
 </html>
