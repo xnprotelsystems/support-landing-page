@@ -292,6 +292,85 @@
     }
     .modal-close:hover { background: var(--surface); color: var(--text); }
 
+    .modal--wide { max-width: 680px; }
+
+    .modal-notice {
+      font-size: .85rem;
+      color: var(--muted);
+      background: #fff8e6;
+      border: 1px solid #f0d890;
+      border-radius: 6px;
+      padding: .6rem .9rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .modal-notice strong { color: #7a5800; }
+
+    .modal-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .modal-col-header {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .4rem .75rem;
+      border-radius: 6px;
+      margin-bottom: .9rem;
+    }
+    .modal-col-header--pos { background: #e6f4ee; color: var(--pos); }
+    .modal-col-header--pms { background: #e6eef6; color: var(--pms); }
+
+    .phone-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+    }
+    .phone-list li {
+      display: flex;
+      flex-direction: column;
+      font-size: .88rem;
+    }
+    .phone-list .country {
+      font-size: .73rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--muted);
+      margin-bottom: .1rem;
+    }
+    .phone-list a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .phone-list a:hover { color: var(--accent); }
+
+    .modal-col--tbc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .tbc-text {
+      font-size: .85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 520px) {
+      .modal-cols { grid-template-columns: 1fr; }
+      .modal--wide { max-width: 100%; }
+    }
+
     /* ── Footer ── */
     footer {
       margin-top: auto;
@@ -410,16 +489,32 @@
 
 <!-- Emergency support modal -->
 <div class="modal-overlay" id="emergency-modal">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal modal--wide" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-    <h3 id="modal-title">Emergency Support</h3>
-    <p>
-      [Placeholder] Emergency support contact details will appear here.<br><br>
-      For example:<br>
-      <strong>Phone:</strong> +00 000 000 0000<br>
-      <strong>Hours:</strong> 24 / 7<br>
-      <strong>Reference:</strong> Please have your site ID ready when calling.
-    </p>
+    <h3 id="modal-title">Emergency Support Numbers</h3>
+    <p class="modal-notice">Please note these telephone numbers are to be used for <strong>business critical support calls only</strong>.</p>
+    <div class="modal-cols">
+
+      <!-- Left: xnPOS -->
+      <div class="modal-col">
+        <div class="modal-col-header modal-col-header--pos">xnPOS Support</div>
+        <ul class="phone-list">
+          <li><span class="country">Australia</span><a href="tel:+61395250525">+61 3 9525 0525</a></li>
+          <li><span class="country">India</span><a href="tel:+919429692080">+91 94 29 69 2080</a></li>
+          <li><span class="country">New Zealand</span><a href="tel:+64800001464">+64 800 001 464</a></li>
+          <li><span class="country">UAE</span><a href="tel:+97148727061">+971 4872 7061</a></li>
+          <li><span class="country">United Kingdom</span><a href="tel:+443332409724">+44 3332 409724</a></li>
+          <li><span class="country">USA</span><a href="tel:+12137871296">+1 213 787 1296</a></li>
+        </ul>
+      </div>
+
+      <!-- Right: PMS (TBC) -->
+      <div class="modal-col modal-col--tbc">
+        <div class="modal-col-header modal-col-header--pms">PMS &amp; Platform Support</div>
+        <p class="tbc-text">Contact information coming soon.</p>
+      </div>
+
+    </div>
   </div>
 </div>
 
