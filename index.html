@@ -84,43 +84,27 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: .85rem;
+      gap: 1rem;
       text-decoration: none;
       color: #fff;
     }
 
-    .logo-mark {
-      width: 36px;
+    .logo-img {
       height: 36px;
-      background: var(--blue);
+      width: auto;
+      display: block;
+      background: #fff;
       border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Sora', sans-serif;
-      font-weight: 800;
-      font-size: .9rem;
-      letter-spacing: -.5px;
-      color: #fff;
+      padding: 4px 10px;
       flex-shrink: 0;
     }
 
-    .logo-text { line-height: 1.15; }
-    .logo-name {
-      font-family: 'Sora', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      display: block;
-      letter-spacing: -.01em;
-    }
     .logo-sub {
       font-size: .68rem;
       font-weight: 500;
       color: rgba(255,255,255,.45);
       letter-spacing: .1em;
       text-transform: uppercase;
-      display: block;
     }
 
     /* ══════════════════════════════════════
@@ -544,9 +528,8 @@
     @media (max-width: 500px) {
       /* Header */
       .header-inner { padding: 0 1rem; height: 56px; }
-      .logo-name { font-size: .9rem; }
+      .logo-img { height: 30px; padding: 3px 8px; }
       .logo-sub { font-size: .62rem; }
-      .logo-mark { width: 32px; height: 32px; font-size: .8rem; }
 
       /* Hero */
       .hero { padding: 3rem 1rem 5.5rem; }
@@ -622,11 +605,8 @@
   <header>
     <div class="header-inner">
       <a class="logo" href="#">
-        <div class="logo-mark">xn</div>
-        <div class="logo-text">
-          <span class="logo-name">Xn Property Systems</span>
-          <span class="logo-sub">Support Springboard</span>
-        </div>
+        <img src="xps-logo.png" alt="Xn Property Systems" class="logo-img">
+        <span class="logo-sub">Support Springboard</span>
       </a>
     </div>
   </header>
