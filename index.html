@@ -11,33 +11,41 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /*
+     * Theme: Xn Blueprint
+     * Derived from xnpropertysystems.com brand palette.
+     * Primary: Deep Navy #021a35 · Brand Blue #1f508b · CTA Blue #0170b9
+     * Accent:  Orange #eb7d2f · Vivid Blue #1b69e7
+     * Surface: Warm Cream #fbf6ee · Light Grey #f9f9f9
+     */
     :root {
-      --navy:          #0b1f36;
-      --navy-mid:      #112d4e;
-      --navy-light:    #1a4068;
-      --blue:          #0078d4;
-      --blue-hover:    #006abc;
-      --blue-bright:   #1a9fff;
-      --pos:           #1a2f5e;
-      --pos-mid:       #152550;
-      --pos-glow:      rgba(26,47,94,.18);
-      --pms:           #0b1f36;
-      --pms-mid:       #0a1b30;
-      --pms-glow:      rgba(0,120,212,.18);
-      --surface:       #f0f4f8;
-      --surface-alt:   #e8eef5;
+      --navy:          #021a35;   /* site footer / deepest bg */
+      --navy-mid:      #0d2340;   /* mid dark section */
+      --navy-light:    #1f508b;   /* primary brand blue */
+      --blue:          #0170b9;   /* main CTA blue */
+      --blue-hover:    #1e73be;   /* hover state */
+      --blue-bright:   #1b69e7;   /* vivid accent */
+      --orange:        #eb7d2f;   /* brand warm accent */
+      --pos:           #1f508b;   /* POS card — brand primary blue */
+      --pos-mid:       #1a4478;
+      --pos-glow:      rgba(31,80,139,.2);
+      --pms:           #0170b9;   /* PMS card — CTA blue */
+      --pms-mid:       #0160a0;
+      --pms-glow:      rgba(1,112,185,.2);
+      --surface:       #f9f9f9;   /* site light section bg */
+      --surface-alt:   #fbf6ee;   /* brand warm cream */
       --card:          #ffffff;
-      --text:          #0b1f36;
-      --text-soft:     #334d66;
-      --muted:         #6b82a0;
-      --border:        #d0daea;
-      --border-light:  #e4eaf3;
+      --text:          #021a35;   /* deep navy for headings / body */
+      --text-soft:     #2a3d52;
+      --muted:         #656565;
+      --border:        #d0d8e4;
+      --border-light:  #e3e3e3;
       --radius-sm:     6px;
       --radius:        10px;
       --radius-lg:     16px;
-      --shadow-card:   0 2px 12px rgba(11,31,54,.08), 0 1px 3px rgba(11,31,54,.05);
-      --shadow-hover:  0 8px 32px rgba(11,31,54,.14), 0 2px 8px rgba(11,31,54,.06);
-      --shadow-modal:  0 20px 60px rgba(11,31,54,.25), 0 4px 16px rgba(11,31,54,.12);
+      --shadow-card:   0 2px 12px rgba(2,26,53,.07), 0 1px 3px rgba(2,26,53,.04);
+      --shadow-hover:  0 8px 32px rgba(2,26,53,.13), 0 2px 8px rgba(2,26,53,.06);
+      --shadow-modal:  0 20px 60px rgba(2,26,53,.28), 0 4px 16px rgba(2,26,53,.12);
     }
 
     html { scroll-behavior: smooth; }
@@ -138,7 +146,7 @@
       pointer-events: none;
     }
 
-    /* Blue glow accent */
+    /* Brand glow — blue centre, orange warmth at edge */
     .hero::after {
       content: '';
       position: absolute;
@@ -147,7 +155,7 @@
       transform: translateX(-50%);
       width: 700px;
       height: 400px;
-      background: radial-gradient(ellipse at center, rgba(0,120,212,.25) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(1,112,185,.28) 0%, rgba(235,125,47,.06) 60%, transparent 80%);
       pointer-events: none;
     }
 
@@ -166,12 +174,12 @@
       font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--blue-bright);
+      color: var(--orange);
       margin-bottom: 1.25rem;
       padding: .3rem .85rem;
-      border: 1px solid rgba(26,159,255,.25);
+      border: 1px solid rgba(235,125,47,.3);
       border-radius: 99px;
-      background: rgba(26,159,255,.08);
+      background: rgba(235,125,47,.1);
     }
 
     .hero h1 {
@@ -185,7 +193,7 @@
     }
 
     .hero h1 span {
-      background: linear-gradient(90deg, #fff 0%, var(--blue-bright) 100%);
+      background: linear-gradient(90deg, #fff 0%, var(--orange) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -245,8 +253,8 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .card--pos .card-icon { background: #e2e7f3; color: var(--pos); }
-    .card--pms .card-icon { background: #dce8f5; color: var(--blue); }
+    .card--pos .card-icon { background: #dde4f0; color: var(--pos); }
+    .card--pms .card-icon { background: #d6e8f7; color: var(--pms); }
     .card-icon svg { width: 22px; height: 22px; }
 
     .card-title-group { flex: 1; }
@@ -288,8 +296,8 @@
       border-radius: 99px;
       letter-spacing: .02em;
     }
-    .card--pos .tag { background: #eaecf5; color: #1a2f5e; border: 1px solid #c8ceea; }
-    .card--pms .tag { background: #e6f0fb; color: #00498a; border: 1px solid #c3d9f5; }
+    .card--pos .tag { background: #e4ecf7; color: var(--pos); border: 1px solid #c2d2ea; }
+    .card--pms .tag { background: #daeaf8; color: #005a94; border: 1px solid #b8d5ee; }
 
     .card-btn {
       display: inline-flex;
@@ -341,7 +349,7 @@
     .help-strip strong { color: rgba(255,255,255,.9); font-weight: 600; }
 
     .help-strip a {
-      color: var(--blue-bright);
+      color: var(--orange);
       text-decoration: none;
       font-weight: 600;
       transition: color .15s;
@@ -440,7 +448,7 @@
       line-height: 1.55;
       font-weight: 500;
     }
-    .modal-notice strong { color: var(--blue); }
+    .modal-notice strong { color: var(--orange); }
 
     .modal-cols {
       display: grid;
@@ -459,8 +467,8 @@
       margin-bottom: 1rem;
       display: block;
     }
-    .modal-col-header--pos { background: #e2e7f3; color: var(--pos); }
-    .modal-col-header--pms { background: #dce8f5; color: #005fa3; }
+    .modal-col-header--pos { background: #dde4f0; color: var(--pos); }
+    .modal-col-header--pms { background: #d6e8f7; color: #005a94; }
 
     .phone-list {
       list-style: none;
@@ -492,7 +500,7 @@
       white-space: nowrap;
       font-family: 'DM Sans', sans-serif;
     }
-    .phone-list a:hover { color: var(--blue); }
+    .phone-list a:hover { color: var(--pms); }
 
     .modal-col--tbc {
       display: flex;
